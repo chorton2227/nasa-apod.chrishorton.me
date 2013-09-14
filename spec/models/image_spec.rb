@@ -19,11 +19,6 @@ describe Image do
 		it { should_not be_valid }
   end
 
-  describe "when image is not present" do
-		before { @image.image = '' }
-		it { should_not be_valid }
-  end
-
   describe "when desc is not present" do
 		before { @image.desc = '' }
 		it { should_not be_valid }
