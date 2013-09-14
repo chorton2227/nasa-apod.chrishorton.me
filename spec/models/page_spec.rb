@@ -53,4 +53,31 @@ describe Page do
 		before { @page.is_copyright = false }
 		it { should be_valid }
   end
+
+
+  describe "image associations" do
+    before do
+    	@page.save
+
+      image1 = Image.new(page: @page, title: "Lorem ipsum dolor sit amet.", image: "/dir/image.jpg",
+		  	desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, voluptatem.",
+		  	day: DateTime.now, credit: "Lorem ipsum dolor sit amet, consectetur adipisicing.")
+
+      image2 = Image.new(page: @page, title: "Lorem ipsum dolor sit amet.", image: "/dir/image.jpg",
+		  	desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, voluptatem.",
+		  	day: DateTime.now, credit: "Lorem ipsum dolor sit amet, consectetur adipisicing.")
+
+      image1.save
+      image2.save
+    end
+    
+    it "should destroy associated microposts" do
+      images = @page.images.to_a
+      @page.destroy
+      expect(images).not_to be_empty
+      images.each do |image|
+        expect(Image.where(id: image.id)).to be_empty
+      end
+    end
+  end
 end

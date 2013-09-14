@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914021450) do
+ActiveRecord::Schema.define(version: 20130914032107) do
 
   create_table "astronomy_pictures", force: true do |t|
     t.string   "title"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20130914021450) do
     t.string   "desc"
     t.string   "credit"
     t.date     "day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.string   "desc"
+    t.date     "day"
+    t.string   "credit"
+    t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
