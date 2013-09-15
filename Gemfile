@@ -24,6 +24,7 @@ gem 'validate_url'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
+gem 'unicorn'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
