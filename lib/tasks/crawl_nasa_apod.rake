@@ -52,6 +52,7 @@ def create_astronomy_page_and_image(page)
 
 	# if copyrighted, do not create image
 	if is_copyright
+		puts "Astronomy page/picture is copyrighted, skip adding image"
 		return
 	end
 
