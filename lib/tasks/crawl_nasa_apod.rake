@@ -43,9 +43,12 @@ def create_astronomy_page_and_image(page)
 
 	# create astronomy page
 	astronomy_page = Page.new(title: page_title, url: page, is_copyright: is_copyright)
-	astronomy_page.save
-
-	puts "Added astronomy page #{page_title}"
+	if astronomy_page.save
+		puts "Added astronomy page #{page_title}"
+	else
+		puts "Failed to add astronomy page #{page_title}"
+		return
+	end
 
 	# if copyrighted, do not create image
 	if is_copyright
@@ -68,9 +71,13 @@ def create_astronomy_page_and_image(page)
 	# create astronomy image
 	astronomy_image = Image.new(title: image_title, desc: image_desc, day: DateTime.now, credit: image_credit)
 	astronomy_image.remote_image_url = image_url
-	astronomy_image.save
-
-	puts "Added astronomy image #{image_title}"
+	if astronomy_image.save
+		puts "Added astronomy image #{image_title}"
+	else
+		puts "Failed to add astronomy image #{image_title}"
+		astronomy_page.destroy
+		return
+	end
 end
 
 ##
