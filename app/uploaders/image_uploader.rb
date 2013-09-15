@@ -14,23 +14,23 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Version sizes
   #
   version :thumb do
-    process :resize_to_fill => [50, 50]
+    process :resize_to_fill => [50, 0]
   end
 
   version :small do
-    process :resize_to_fill => [100, 100]
+    process :resize_to_fill => [100, 0]
   end
   
   version :medium do
-    process :resize_to_fill => [250, 250]
+    process :resize_to_fill => [250, 0]
   end
   
   version :large do
-    process :resize_to_fill => [500, 500]
+    process :resize_to_fill => [500, 0]
   end
   
   version :xlarge do
-    process :resize_to_fill => [900, 900]
+    process :resize_to_fill => [900, 0]
   end
   
   # Only allow images
