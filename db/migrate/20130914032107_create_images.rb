@@ -3,9 +3,9 @@ class CreateImages < ActiveRecord::Migration
     create_table :images do |t|
       t.string :title
       t.string :image
-      t.string :desc
+      t.text :desc
       t.date :day
-      t.string :credit
+      t.text :credit
       t.belongs_to :page
 
       t.timestamps
