@@ -10,11 +10,10 @@ require 'open-uri'
 # Crawl NASA Astronomy Picture of the Day archive for images.
 #
 task :crawl_nasa_apod => :environment do
-	Page.destroy_all
-	Image.destroy_all
 	get_astronomy_pages().each do |page|
 		if Page.where(url: page).length == 0
 			create_astronomy_page_and_image(page)
+			break
 		end
 	end
 end
