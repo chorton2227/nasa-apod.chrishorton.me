@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require masonry.min
+//= require lightbox.min
 //= require_tree .

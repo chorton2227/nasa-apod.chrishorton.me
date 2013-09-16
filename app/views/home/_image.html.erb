@@ -1,3 +1,6 @@
 <div class="image-item">
-	<%= image_tag image.image.large.url %>
+	<%= link_to image_tag(image.image.large.url), image.image.url, title: image.title, data: { lightbox: "image-1" } %>
+	<span class="caption simple-caption">
+		<%== image.title %>
+	</span>
 </div>
