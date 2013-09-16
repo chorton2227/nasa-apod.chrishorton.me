@@ -57,8 +57,7 @@ def create_astronomy_page_and_image(page)
 	# get the astronomy image and check if exists
 	image_url = get_image_url(page_doc)
 	if image_url.nil?
-		puts "Image not found, remove astronomy page #{page_title}"
-		astronomy_page.destroy
+		puts "Image not found"
 		return
 	end
 
@@ -68,7 +67,7 @@ def create_astronomy_page_and_image(page)
 	image_day = get_image_day(page_doc)
 
 	# create astronomy image
-	astronomy_image = Image.new(title: image_title, desc: "image_desc", day: DateTime.now, credit: image_credit)
+	astronomy_image = Image.new(title: image_title, desc: image_desc, day: DateTime.now, credit: image_credit)
 	astronomy_image.remote_image_url = image_url
 	if astronomy_image.save
 		puts "Added astronomy image #{image_title}"

@@ -1,7 +1,7 @@
 Fog.credentials_path = Rails.root.join('config/fog_credentials.yml')
 
-fog_dir = Rails.env == 'production' ? 'static.nasa-apod.chrishorton.me' : 'test.nasa-apod.chrishorton.me'
-asset_host = Rails.env == 'production' ? '//static.nasa-apod.chrishorton.me.s3.amazonaws.com' : '//test.nasa-apod.chrishorton.me.s3.amazonaws.com'
+fog_dir = Rails.env == 'production' ? 'static.nasa-apod.chrishorton.me' : 'static.nasa-apod.chrishorton.me'
+asset_host = Rails.env == 'production' ? '//static.nasa-apod.chrishorton.me.s3.amazonaws.com' : '//static.nasa-apod.chrishorton.me.s3.amazonaws.com'
 
 CarrierWave.configure do |config|
   config.fog_credentials   = { provider: 'AWS' }  

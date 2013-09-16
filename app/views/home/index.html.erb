@@ -1,7 +1,7 @@
 <h1>NASA Astronomy Pictures of the Day</h1>
 
 <% if @images.any? %>
-  <div id="images">
+  <div id="image-container">
     <%= render partial: 'image', collection: @images %>
   </div>
 <% end %>
