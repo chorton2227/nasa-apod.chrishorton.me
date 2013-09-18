@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
 	def index
-		@images = Image.all(:order => "RANDOM()").take(12)
+		@images = Image.paginate(page: params[:page]).order("RANDOM()")
 	end
 end

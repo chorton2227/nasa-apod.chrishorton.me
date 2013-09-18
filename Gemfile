@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
 gem 'unicorn'
+gem 'will_paginate', '3.0.4'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

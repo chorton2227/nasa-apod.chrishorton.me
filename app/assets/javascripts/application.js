@@ -1,18 +1,32 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require imagesloaded.min
 //= require masonry.min
 //= require lightbox.min
+//= require infinite-scroll.min
 //= require_tree .
+
+$(function() {
+  var $container = $('#image-container')
+  $container.imagesLoaded(function(){
+    $container.masonry({
+      itemSelector: '.image-item'
+    });
+  });
+
+  $container.infinitescroll({
+    navSelector  : "div.pagination",
+    nextSelector : "div.pagination a:first",
+    itemSelector : "#image-container div.image-item",
+  }, function (newElements) {
+    // hide new items while they are loading
+    var $newElems = $( newElements ).css({ opacity: 0 });
+    // ensure that images load before adding to masonry layout
+    $newElems.imagesLoaded(function(){
+      // show elems now they're ready
+      $newElems.animate({ opacity: 1 });
+      $container.masonry( 'appended', $newElems, true );
+    });
+  });
+});

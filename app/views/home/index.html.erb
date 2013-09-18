@@ -1,7 +1,19 @@
-<h1>NASA Astronomy Pictures of the Day</h1>
+<div id="main">
+	<h1>NASA Astronomy Pictures</h1>
+	<div class="container source-container">
+		<div class="source left">
+			<a href="http://apod.nasa.gov/apod/archivepix.html">NASA Astronomy Picture of the Day</a>
+		</div>
+		<div class="source right">
+			<a href="https://github.com/">View Source on GitHub</a>
+		</div>
+	</div>
 
-<% if @images.any? %>
-  <div id="image-container">
-    <%= render partial: 'image', collection: @images %>
-  </div>
-<% end %>
+	<% if @images.any? %>
+	  <div id="image-container">
+	    <%= render partial: 'image', collection: @images %>
+	  </div>
+	  <%= will_paginate @images, class: "container pagination" %>
+	<% end %>
+	<div class="clear"></div>
+</div>
