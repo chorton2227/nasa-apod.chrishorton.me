@@ -22,7 +22,7 @@ $(function() {
     loading: {
         finished: undefined,
         finishedMsg: "<em>Images not found.</em>",
-        img: "/assets/loading.gif",
+        img: "/images/loading.gif",
         msg: null,
         msgText: "<em>Loading images...</em>",
         selector: $('#infscr-loading-container'),

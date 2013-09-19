@@ -14,10 +14,11 @@
 	  <div id="image-container">
 	    <%= render partial: 'image', collection: @images %>
 	  </div>
+
+	  <div id="infscr-loading-container" class="container"></div>
+	  
 	  <%= will_paginate @images, class: "container pagination" %>
 	<% end %>
-
-	<div id="infscr-loading-container" class="container"></div>
 
 	<div class="clear"></div>
 </div>
