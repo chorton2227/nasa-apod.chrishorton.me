@@ -5,7 +5,6 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 group :development, :test do
-  gem 'pg'
   gem 'sqlite3', '1.3.7'
   gem 'rspec-rails', '2.13.1'
 end
@@ -29,6 +28,7 @@ gem 'unicorn'
 gem 'will_paginate', '3.0.4'
 
 group :doc do
+  gem 'pg'
   gem 'sdoc', '0.3.20', require: false
 end
 

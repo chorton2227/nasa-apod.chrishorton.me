@@ -1,0 +1,21 @@
+development:
+  encoding: unicode
+  database: nasa_apod_development
+  pool: 5
+  username: nasa_apod
+  password:
+
+test:
+  encoding: unicode
+  database: nasa_apod_test
+  pool: 5
+  username: nasa_apod
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: nasa_apod_production
+  pool: 5
+  username: nasa_apod
+  password:
