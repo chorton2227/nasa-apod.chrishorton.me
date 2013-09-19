@@ -18,7 +18,17 @@ $(function() {
   $container.infinitescroll({
     navSelector: "div.pagination",
     nextSelector: "div.pagination a:first",
-    itemSelector: "#image-container div.image-item"
+    itemSelector: "#image-container div.image-item",
+    loading: {
+        finished: undefined,
+        finishedMsg: "<em>Images not found.</em>",
+        img: "/assets/loading.gif",
+        msg: null,
+        msgText: "<em>Loading images...</em>",
+        selector: $('#infscr-loading-container'),
+        speed: 'slow',
+        start: undefined
+    }
   }, function (newElements) {
     var $newElems = $( newElements ).css({ opacity: 0 });
     $newElems.imagesLoaded(function(){

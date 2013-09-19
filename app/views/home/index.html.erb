@@ -1,5 +1,6 @@
 <div id="main">
 	<h1>NASA Astronomy Pictures</h1>
+
 	<div class="container source-container">
 		<div class="source left">
 			<a href="http://apod.nasa.gov/apod/archivepix.html">NASA Astronomy Picture of the Day</a>
@@ -15,5 +16,8 @@
 	  </div>
 	  <%= will_paginate @images, class: "container pagination" %>
 	<% end %>
+
+	<div id="infscr-loading-container" class="container"></div>
+
 	<div class="clear"></div>
 </div>
